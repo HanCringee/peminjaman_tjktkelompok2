@@ -1,0 +1,23 @@
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "cd peminjaman_tjkt && npm run dev",
+        "dev:laravel:vite": "vite",
+        "dev:vue": "cd peminjaman_tjkt && npm run dev",
+        "dev:laravel": "php artisan serve --host=127.0.0.1 --port=8000",
+        "dev:all": "concurrently \"npm run dev:laravel\" \"npm run dev:vue\"",
+        "build:vue": "cd peminjaman_tjkt && npm run build",
+        "deploy:vue": "cd peminjaman_tjkt && npm run build && Copy-Item -Recurse -Force dist\\* ..\\public\\"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.0.0",
+        "axios": ">=1.11.0 <=1.14.0",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^3.0.0",
+        "tailwindcss": "^4.0.0",
+        "vite": "^8.0.0"
+    }
+}
