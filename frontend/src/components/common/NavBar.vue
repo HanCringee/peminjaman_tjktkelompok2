@@ -58,7 +58,7 @@ async function handleLogout() {
             </router-link>
             <router-link
               v-if="authStore.isAdmin"
-              to="/admin"
+              to="/admin/peminjaman"
               class="text-text/80 hover:text-text hover:bg-muted/10 px-3 py-2 rounded-lg text-sm font-medium transition"
             >
               Admin
@@ -148,7 +148,7 @@ async function handleLogout() {
         </router-link>
         <router-link
           v-if="authStore.isAdmin"
-          to="/admin"
+          to="/admin/peminjaman"
           class="block text-text/80 hover:text-text hover:bg-muted/10 px-3 py-2 rounded-lg text-sm font-medium transition"
           @click="mobileOpen = false"
         >

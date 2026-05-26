@@ -67,9 +67,7 @@ const routes = [
   },
   {
     path: '/admin',
-    name: 'admin-dashboard',
-    component: () => import('@/views/admin/AdminDashboardView.vue'),
-    meta: { auth: true, admin: true },
+    redirect: '/admin/peminjaman',
   },
   {
     path: '/admin/alat',
@@ -118,7 +116,7 @@ router.beforeEach((to, from, next) => {
   } else if (to.meta.admin && !authStore.isAdmin) {
     next({ name: 'dashboard' })
   } else if (to.name === 'peminjaman-create' && authStore.isAdmin) {
-    next({ name: 'dashboard' })
+    next({ name: 'admin-peminjaman' })
   } else {
     next()
   }

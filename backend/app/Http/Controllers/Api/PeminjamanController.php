@@ -114,4 +114,40 @@ class PeminjamanController extends Controller
             'message' => 'Berhasil dihapus'
         ], 200);
     }
+
+    public function approve(string $id)
+    {
+        $peminjaman = Peminjaman::find($id);
+
+        if (!$peminjaman) {
+            return response()->json([
+                'message' => 'Data tidak ditemukan'
+            ], 404);
+        }
+
+        $peminjaman->update(['status' => 'approved']);
+
+        return response()->json([
+            'success' => true,
+            'data' => $peminjaman
+        ], 200);
+    }
+
+    public function selesai(string $id)
+    {
+        $peminjaman = Peminjaman::find($id);
+
+        if (!$peminjaman) {
+            return response()->json([
+                'message' => 'Data tidak ditemukan'
+            ], 404);
+        }
+
+        $peminjaman->update(['status' => 'selesai']);
+
+        return response()->json([
+            'success' => true,
+            'data' => $peminjaman
+        ], 200);
+    }
 }
